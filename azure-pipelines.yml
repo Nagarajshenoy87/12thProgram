@@ -7,14 +7,12 @@ trigger:
 - main
 
 pool:
-  name: MyAgentBro
+  name: 'MyAgentBro'
 
 steps:
 
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'clean package'
+- script: mvn clean package
+  displayName: 'Build Maven Project'
 
 - script: |
     echo "Simulating deployment..."
